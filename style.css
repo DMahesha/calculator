@@ -1,0 +1,25 @@
+#grid {
+    height: fit-content;
+    width: fit-content;
+    background-color: lightgray;
+    display: grid;
+    grid-template: 50px 50px 50px 50px 50px/ 50px 50px 50px 50px ;
+    grid-template-areas: 
+    "calc-display calc-display calc-display calc-display";
+}
+
+#calc-display {
+    border: solid 1px black;
+    grid-area: calc-display;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding-right: 15px;
+}
+
+.num, .oprt, .sign {
+    border: solid 1px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
