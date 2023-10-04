@@ -10,6 +10,7 @@
 
 #calc-display {
     border: solid 1px black;
+    background-color: lightskyblue;
     grid-area: calc-display;
     display: flex;
     justify-content: right;
@@ -22,4 +23,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* No functionality yet */
+#calc-equal, #calc-period {
+    background-color: gray;
 }
