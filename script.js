@@ -16,17 +16,17 @@ const calcDiv = document.querySelector('#calc-div')
 const calcPeriod = document.querySelector('#calc-period')
 const calcEqual = document.querySelector('#calc-equal')
 
-let firstNumber = 0
-let firstOperator = 0
-let secondNumber = 0
+let firstNumber = ''
+let firstOperator = ''
+let secondNumber = ''
 
 calcOne.addEventListener('click', pushOne)
 
 function pushOne() {
-    firstNumber = 1
+    //firstNumber = 1
     calcDisplay.textContent = 1
     calcOne.style.cssText = 'background-color:red'
-    evaluate()
+    pushNumber(1)
 }
 
 calcAdd.addEventListener('click', pushAdd)
@@ -35,21 +35,29 @@ function pushAdd() {
     firstOperator = '+'
     calcDisplay.textContent = '+'
     calcAdd.style.cssText = 'background-color:yellow'
-    evaluate()
 }
 
 calcTwo.addEventListener('click', pushTwo)
 
 function pushTwo() {
-    secondNumber = 2
+    //secondNumber = 2
     calcDisplay.textContent = 2
     calcTwo.style.cssText = 'background-color:green'
-    evaluate()
+    pushNumber(2)
+}
+
+calcEqual.addEventListener('click', evaluate)
+
+function pushNumber(num) {
+    if (firstNumber == '') {
+        firstNumber = num
+    } else if ( secondNumber == '') {
+        secondNumber = num
+    }
 }
 
 function evaluate() {
-    
-    // if ( firstNumber != 0 && secondNumber != 0 && firstOperator === '+') {
-    //     calcDisplay.textContent = firstNumber + secondNumber
-    // }
+    if (firstOperator == '+') {
+        calcDisplay.textContent = firstNumber + secondNumber
+    }
 }
