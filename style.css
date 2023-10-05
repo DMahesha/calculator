@@ -5,7 +5,11 @@
     display: grid;
     grid-template: 50px 50px 50px 50px 50px/ 50px 50px 50px 50px ;
     grid-template-areas: 
-    "calc-display calc-display calc-display calc-display";
+    "calc-display calc-display calc-display calc-reset";
+}
+
+#grid:hover {
+    cursor: pointer;
 }
 
 #calc-display {
@@ -20,6 +24,15 @@
 
 .num, .oprt, .sign {
     border: solid 1px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#calc-reset {
+    border: solid 1px black;
+    background-color: orange;
+    grid-area: calc-reset;
     display: flex;
     justify-content: center;
     align-items: center;
