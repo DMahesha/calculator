@@ -10,17 +10,18 @@ let secondNumber = ''
 
 num.forEach(item => {
     item.addEventListener('click', (e => {
-        let selNum = Number(e.target.textContent)
-        calcDisplay.textContent = selNum
+        let selNum = e.target.textContent
         pushNumber(selNum)
     }))
 })
 
 function pushNumber(num) {
-    if (firstNumber == '') {
-        firstNumber = num
-    } else if ( secondNumber == '') {
-        secondNumber = num
+    if (firstOperator == '') {
+        firstNumber += num
+        calcDisplay.textContent = firstNumber
+    } else if ( firstOperator != '') {
+        secondNumber += num
+        calcDisplay.textContent = secondNumber
     }
 }
 
@@ -31,25 +32,29 @@ oprt.forEach(item => {
     }))
 });
 
-calcReset.addEventListener('click', resetCalc)
-
-function resetCalc() {
-    firstNumber = '';
-    firstOperator = '';
-    secondNumber = '';
+calcReset.addEventListener('click', () => {
+    numReset()
     calcDisplay.textContent = 0
+})
+
+function numReset() {
+    firstNumber = ''
+    firstOperator = ''
+    secondNumber = ''
 }
 
-calcEqual.addEventListener('click', evaluate)
-
-function evaluate() {
+calcEqual.addEventListener('click', () => {
     if (firstOperator == '+') {
-        calcDisplay.textContent = firstNumber + secondNumber
+        calcDisplay.textContent = Number(firstNumber) + Number(secondNumber)
+        numReset()
     } else if (firstOperator == '-') {
-        calcDisplay.textContent = firstNumber - secondNumber
+        calcDisplay.textContent = Number(firstNumber) - Number(secondNumber)
+        numReset()
     } else if (firstOperator == '*') {
-        calcDisplay.textContent = firstNumber * secondNumber
+        calcDisplay.textContent = Number(firstNumber) * Number(secondNumber)
+        numReset()
     } else if (firstOperator == '/') {
-        calcDisplay.textContent = firstNumber / secondNumber
+        calcDisplay.textContent = Number(firstNumber) / Number(secondNumber)
+        numReset()
     }
-}
+})
